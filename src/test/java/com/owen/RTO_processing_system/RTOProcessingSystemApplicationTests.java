@@ -1,10 +1,10 @@
-package com.owen.ROT_processing_system;
+package com.owen.RTO_processing_system;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RotProcessingSystemApplicationTests {
+class RTOProcessingSystemApplicationTests {
 
 	@Test
 	void contextLoads() {
