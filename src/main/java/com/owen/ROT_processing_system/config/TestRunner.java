@@ -16,7 +16,7 @@ public class TestRunner {
     @Bean
     CommandLineRunner run (OrderRepository repo) {
         return args -> {
-            Order order = new Order (UUID.randomUUID(), new BigDecimal(99.99), "Created");
+            Order order = new Order (UUID.randomUUID(), new BigDecimal(99.99), "CREATED");
 
             repo.save (order);
 
