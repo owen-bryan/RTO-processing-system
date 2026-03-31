@@ -1,13 +1,13 @@
-package com.owen.ROT_processing_system;
+package com.owen.RTO_processing_system;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RotProcessingSystemApplication {
+public class RTOProcessingSystemApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RotProcessingSystemApplication.class, args);
+		SpringApplication.run(RTOProcessingSystemApplication.class, args);
 	}
 
 }

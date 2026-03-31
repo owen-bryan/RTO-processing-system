@@ -1,4 +1,4 @@
-package com.owen.ROT_processing_system.dto;
+package com.owen.RTO_processing_system.dto;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

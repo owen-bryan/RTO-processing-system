@@ -1,4 +1,4 @@
-package com.owen.ROT_processing_system.config;
+package com.owen.RTO_processing_system.config;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -7,8 +7,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.owen.ROT_processing_system.model.Order;
-import com.owen.ROT_processing_system.repository.OrderRepository;
+import com.owen.RTO_processing_system.model.Order;
+import com.owen.RTO_processing_system.repository.OrderRepository;
 
 @Configuration
 public class TestRunner {
