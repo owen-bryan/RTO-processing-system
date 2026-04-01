@@ -36,3 +36,4 @@ build/
 
 *application.properties
 *database.sql
+docker-compose.yml
