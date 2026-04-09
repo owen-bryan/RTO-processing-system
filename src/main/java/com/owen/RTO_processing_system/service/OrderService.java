@@ -7,15 +7,18 @@ import org.springframework.stereotype.Service;
 import com.owen.RTO_processing_system.dto.CreateOrderRequest;
 import com.owen.RTO_processing_system.dto.OrderResponse;
 import com.owen.RTO_processing_system.model.Order;
+import com.owen.RTO_processing_system.model.OrderCreatedEvent;
 import com.owen.RTO_processing_system.repository.OrderRepository;
 
 @Service
 public class OrderService {
     
     private final OrderRepository orderRepository;
+    private final OrderProducer producer;
 
-    public OrderService(OrderRepository orderRepository) {
+    public OrderService(OrderRepository orderRepository, OrderProducer producer) {
         this.orderRepository = orderRepository;
+        this.producer = producer;
     }
 
     public OrderResponse createOrder (CreateOrderRequest request) {
@@ -31,6 +34,10 @@ public class OrderService {
         );
         
         Order saved = orderRepository.save (order);
+
+        OrderCreatedEvent event = new OrderCreatedEvent(saved.getId(), "Strawberries", 5);
+
+        producer.sendOrderCreatedEvent(event);
 
         return new OrderResponse(
             saved.getId(),
