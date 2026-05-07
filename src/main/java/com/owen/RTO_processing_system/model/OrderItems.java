@@ -6,6 +6,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -16,22 +18,23 @@ public class OrderItems {
     @GeneratedValue
     private UUID id;
    
-    @Column(nullable = false)
-    private UUID orderID;
+    @ManyToOne
+    @JoinColumn (name = "order_id", nullable = false)
+    private Order order;
    
     @Column(nullable = false)
     private String productName;
     
     @Column(nullable = false)
-    private int quanity;
+    private int quantity;
     
     public OrderItems() {
     }
 
-    public OrderItems(UUID orderID, String productName, int quanity) {
-        this.orderID = orderID;
+    public OrderItems(Order order, String productName, int quantity) {
+        this.order = order;
         this.productName = productName;
-        this.quanity = quanity;
+        this.quantity = quantity;
     }
 
     public UUID getOrderManifestID() {
@@ -42,14 +45,6 @@ public class OrderItems {
         this.id = id;
     }
 
-    public UUID getOrderID() {
-        return orderID;
-    }
-
-    public void setOrderID(UUID orderID) {
-        this.orderID = orderID;
-    }
-
     public String getProductName() {
         return productName;
     }
@@ -58,12 +53,12 @@ public class OrderItems {
         this.productName = productName;
     }
 
-    public int getQuanity() {
-        return quanity;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setQuanity(int quanity) {
-        this.quanity = quanity;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     

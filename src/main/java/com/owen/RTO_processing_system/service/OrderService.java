@@ -1,13 +1,17 @@
 package com.owen.RTO_processing_system.service;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
 import com.owen.RTO_processing_system.dto.CreateOrderRequest;
+import com.owen.RTO_processing_system.dto.OrderCreatedEvent;
 import com.owen.RTO_processing_system.dto.OrderResponse;
 import com.owen.RTO_processing_system.model.Order;
-import com.owen.RTO_processing_system.model.OrderCreatedEvent;
+import com.owen.RTO_processing_system.model.OrderItems;
+import com.owen.RTO_processing_system.model.OrderStatus;
 import com.owen.RTO_processing_system.repository.OrderRepository;
 
 @Service
@@ -21,6 +25,12 @@ public class OrderService {
         this.producer = producer;
     }
 
+    public OrderResponse getOrder (UUID orderId){
+        Order order = orderRepository.findById(orderId).orElseThrow();
+
+        return new OrderResponse(order.getId(), order.getUserId(), order.getTotalAmount(), order.getStatus(), order.getCreatedAt());
+    }
+
     public OrderResponse createOrder (CreateOrderRequest request) {
 
         if (request.getTotalAmount() == null || request.getTotalAmount().compareTo(BigDecimal.ZERO) <= 0) {
@@ -30,12 +40,18 @@ public class OrderService {
         Order order = new Order (
             request.getUserId(),
             request.getTotalAmount(),
-            "CREATED"
+            OrderStatus.CREATED,
+            new ArrayList<OrderItems>()
         );
         
         Order saved = orderRepository.save (order);
 
-        OrderCreatedEvent event = new OrderCreatedEvent(saved.getId(), "Strawberries", 5);
+        OrderCreatedEvent event = new OrderCreatedEvent(
+            saved.getId(), 
+            saved.getTotalAmount(), 
+            saved.getStatus(), 
+            saved.getItems()
+        );
 
         producer.sendOrderCreatedEvent(event);
 

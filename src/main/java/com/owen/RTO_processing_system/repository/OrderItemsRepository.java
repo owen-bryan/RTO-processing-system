@@ -6,6 +6,6 @@ import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface OrderManifestRepository extends JpaRepository <OrderItems, UUID> {
+public interface OrderItemsRepository extends JpaRepository <OrderItems, UUID> {
     
 }

@@ -4,15 +4,17 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import com.owen.RTO_processing_system.model.OrderStatus;
+
 public class OrderResponse {
     
     private UUID id;
     private UUID userId;
     private BigDecimal totalAmount;
-    private String status;
+    private OrderStatus status;
     private LocalDateTime createdAt;
     
-    public OrderResponse(UUID id, UUID userId, BigDecimal totalAmount, String status, LocalDateTime createdAt) {
+    public OrderResponse(UUID id, UUID userId, BigDecimal totalAmount, OrderStatus status, LocalDateTime createdAt) {
         this.id = id;
         this.userId = userId;
         this.totalAmount = totalAmount;
@@ -32,7 +34,7 @@ public class OrderResponse {
         return totalAmount;
     }
 
-    public String getStatus() {
+    public OrderStatus getStatus() {
         return status;
     }
 

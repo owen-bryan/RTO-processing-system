@@ -7,6 +7,7 @@ public class CreateOrderRequest {
     
     private UUID userId;
     private BigDecimal totalAmount;
+    
     public UUID getUserId() {
         return userId;
     }
