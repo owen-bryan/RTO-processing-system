@@ -1,12 +1,12 @@
-package com.owen.RTO_processing_system.dto;
+package com.owen.RTO_processing_system.dto.out;
 
 import java.math.BigDecimal;
 
 import com.owen.RTO_processing_system.model.Order;
 
 public class PaymentResult {
-    enum PaymentStatus {
-        FAIL, SUCCESS
+    public enum PaymentStatus {
+        FAIL, SUCCESS, REFUNDED
     }
     
 

@@ -1,4 +1,4 @@
-package com.owen.RTO_processing_system.dto;
+package com.owen.RTO_processing_system.dto.in;
 
 import java.math.BigDecimal;
 import java.util.UUID;

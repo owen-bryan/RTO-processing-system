@@ -1,8 +1,13 @@
 package com.owen.RTO_processing_system.service;
 
-import com.owen.RTO_processing_system.dto.PaymentRequest;
-import com.owen.RTO_processing_system.dto.PaymentResult;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Service;
 
+import com.owen.RTO_processing_system.dto.in.PaymentRequest;
+import com.owen.RTO_processing_system.dto.out.PaymentResult;
+
+@Service
+@Primary
 public class MockPaymentService implements PaymentService{
 
     @Override

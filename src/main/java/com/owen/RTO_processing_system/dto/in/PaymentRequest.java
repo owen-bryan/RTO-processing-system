@@ -1,19 +1,20 @@
-package com.owen.RTO_processing_system.dto;
+package com.owen.RTO_processing_system.dto.in;
 
 import java.math.BigDecimal;
 
 import com.owen.RTO_processing_system.model.Order;
+import com.owen.RTO_processing_system.model.OrderStatus;
 
 public class PaymentRequest {
 
     private Order order;
     private BigDecimal amount;
-    private String status;
+    private OrderStatus status;
     
     public PaymentRequest() {
     }
 
-    public PaymentRequest(Order order, BigDecimal amount, String status) {
+    public PaymentRequest(Order order, BigDecimal amount, OrderStatus status) {
         this.order = order;
         this.amount = amount;
         this.status = status;
@@ -35,11 +36,11 @@ public class PaymentRequest {
         this.amount = amount;
     }
 
-    public String getStatus() {
+    public OrderStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(OrderStatus status) {
         this.status = status;
     }
 
