@@ -5,6 +5,7 @@ import java.util.UUID;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -13,18 +14,20 @@ import jakarta.persistence.Table;
 public class Product {
     
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     @Column (nullable = false)
     private String name;
 
     @Column (nullable = false)
-    private int quanity;
+    private int quantity;
 
-    public Product(String name, int quanity) {
+    public Product() {}
+
+    public Product(String name, int quantity) {
         this.name = name;
-        this.quanity = quanity;
+        this.quantity = quantity;
     }
 
     public UUID getId() {
@@ -43,12 +46,12 @@ public class Product {
         this.name = name;
     }
 
-    public int getQuanity() {
-        return quanity;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setQuanity(int quanity) {
-        this.quanity = quanity;
+    public void setQuantity(int quanity) {
+        this.quantity = quanity;
     }
 
     

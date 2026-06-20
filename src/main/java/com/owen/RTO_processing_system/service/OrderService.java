@@ -6,13 +6,13 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import com.owen.RTO_processing_system.Kafka.producer.OrderCreatedProducer;
 import com.owen.RTO_processing_system.dto.in.CreateOrderRequest;
 import com.owen.RTO_processing_system.dto.out.OrderCreatedEvent;
 import com.owen.RTO_processing_system.dto.out.OrderResponse;
 import com.owen.RTO_processing_system.model.Order;
 import com.owen.RTO_processing_system.model.OrderItems;
 import com.owen.RTO_processing_system.model.OrderStatus;
-import com.owen.RTO_processing_system.producer.OrderCreatedProducer;
 import com.owen.RTO_processing_system.repository.OrderRepository;
 
 @Service

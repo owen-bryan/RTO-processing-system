@@ -1,8 +1,7 @@
 package com.owen.RTO_processing_system.dto.out;
 
 import java.math.BigDecimal;
-
-import com.owen.RTO_processing_system.model.Order;
+import java.util.UUID;
 
 public class PaymentResult {
     public enum PaymentStatus {
@@ -11,26 +10,27 @@ public class PaymentResult {
     
 
     private BigDecimal amount;
-    private Order order;
+    private UUID orderId;
     private PaymentStatus status;
 
     public PaymentResult() {
     }
 
-    public PaymentResult(PaymentStatus status, BigDecimal amount, Order order) {
-        this.status = status;
+    public PaymentResult(PaymentStatus status, BigDecimal amount, UUID orderId) {
         this.amount = amount;
-        this.order = order;
+        this.orderId = orderId;
+        this.status = status;
     }
 
-    public static PaymentResult success (BigDecimal amount, Order order)
+
+    public static PaymentResult success (BigDecimal amount, UUID orderId)
     {
-        return new PaymentResult(PaymentStatus.SUCCESS, amount, order);
+        return new PaymentResult(PaymentStatus.SUCCESS, amount, orderId);
     }
 
-    public static PaymentResult fail (BigDecimal amount, Order order)
+    public static PaymentResult fail (BigDecimal amount, UUID orderId)
     {
-        return new PaymentResult (PaymentStatus.FAIL, amount, order);
+        return new PaymentResult (PaymentStatus.FAIL, amount, orderId);
     }
 
     public PaymentStatus getStatus() {
@@ -49,13 +49,14 @@ public class PaymentResult {
         this.amount = ammount;
     }
 
-    public Order getOrder() {
-        return order;
+    public UUID getOrderId() {
+        return orderId;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setOrderId(UUID orderId) {
+        this.orderId = orderId;
     }
+
 
     
 }

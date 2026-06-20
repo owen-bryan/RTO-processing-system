@@ -16,10 +16,10 @@ public class MockPaymentService implements PaymentService{
             throw new IllegalArgumentException();
 
         if (Math.random() > 0.2) {
-            return PaymentResult.success(request.getAmount(), request.getOrder());
+            return PaymentResult.success(request.getAmount(), request.getOrder().getId());
         }
 
-        return PaymentResult.fail(request.getAmount(), request.getOrder());
+        return PaymentResult.fail(request.getAmount(), request.getOrder().getId());
     }
     
 }
