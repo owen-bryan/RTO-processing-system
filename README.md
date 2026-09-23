@@ -10,10 +10,15 @@ I created this application to learn more about Spring Boot and the various libra
 * Docker
 
 ### Installing
-* Run the included docker file
+Run
+```bash
+docker build -t rto-processing-system:latest .
+```
 
 ### Executing
-* Then run the docker-compose
+```bash
+docker compose up
+```
 
 ## Author
 
