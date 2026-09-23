@@ -5,10 +5,8 @@ import org.springframework.stereotype.Service;
 import com.owen.RTO_processing_system.dto.out.OrderCreatedEvent;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
 @Service
-@Slf4j
 @RequiredArgsConstructor
 public class OrderCreatedProducer {
     

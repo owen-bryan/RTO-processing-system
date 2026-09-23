@@ -18,6 +18,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "order_items")
 @NoArgsConstructor
+@AllArgsConstructor
 public class OrderItems {
   
     @Id
@@ -30,10 +31,11 @@ public class OrderItems {
     @JoinColumn (name = "order_id", nullable = false)
     private Order order;
    
-    @Column(nullable = false)
+    @ManyToOne
+    @JoinColumn (name = "product_id", nullable = false)
     @Getter
     @Setter
-    private String productName;
+    private Product product;
     
     @Column(nullable = false)
     @Getter
@@ -45,12 +47,12 @@ public class OrderItems {
     @Setter
     private boolean allocated;
 
-    public OrderItems(Order order, String productName, int quantity) {
+    public OrderItems(Order order, Product product, int quantity) {
         this.order = order;
-        this.productName = productName;
+        this.product = product;
         this.quantity = quantity;
         this.allocated = false;
     }
-    
+
     
 }

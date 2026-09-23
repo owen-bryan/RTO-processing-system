@@ -51,9 +51,9 @@ public class Order {
         this.items = items;
     }
 
-    public void addItem (String productName, int quanity, BigDecimal price)
+    public void addItem (Product product, int quanity, BigDecimal price)
     {
-        OrderItems item = new OrderItems(this, productName, quanity);
+        OrderItems item = new OrderItems(this, product, quanity);
         this.items.add(item);
     }
 
